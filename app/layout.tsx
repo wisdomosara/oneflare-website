@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "Oneflare Tech Solutions | Custom Software & POS Systems",
   description:
     "Oneflare Tech Solutions specializes in customized software development, POS solutions, and business suite management tools for modern enterprises.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -18,6 +17,3 @@ export default function RootLayout({
   return <ClientRootLayout>{children}</ClientRootLayout>
 }
 
-
-
-import './globals.css'
