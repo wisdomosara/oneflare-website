@@ -108,7 +108,7 @@ export default function Hero() {
         <div className="py-8 md:py-12 lg:py-16">
           <div className="grid gap-12 md:grid-cols-2 md:items-center lg:gap-16">
             {/* Text content */}
-            <div className="text-center md:text-left">
+            <div className="text-center sm:text-center md:text-left">
               <div className="mb-4 inline-block rounded-md bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
                 Oneflare Tech Solutions
               </div>
@@ -119,11 +119,16 @@ export default function Hero() {
                 Delivering scalable, secure, and customized software solutions that drive growth and streamline
                 operations for businesses of all sizes.
               </p>
-              <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-start">
-                <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+              <div className="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 md:justify-start">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 w-full sm:w-auto" asChild>
                   <Link href="/contact">Get Started</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/10 w-full sm:w-auto"
+                  asChild
+                >
                   <Link href="/services">Explore Services</Link>
                 </Button>
               </div>
@@ -131,7 +136,7 @@ export default function Hero() {
 
             {/* Carousel */}
             <div
-              className="relative h-[300px] md:h-[400px]"
+              className="relative h-[400px] md:h-[450px] rounded-lg overflow-hidden"
               onMouseEnter={() => {
                 pauseCarousel()
                 setIsHovering(true)
@@ -169,14 +174,14 @@ export default function Hero() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Navigation buttons - only visible on hover and on desktop */}
+                {/* Navigation buttons - only visible on hover */}
                 <button
                   onClick={() => {
                     prevSlide()
                     pauseCarousel()
                   }}
-                  className={`absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-all hover:bg-white md:opacity-0 ${
-                    isHovering ? "md:opacity-100" : ""
+                  className={`absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-all hover:bg-white opacity-0 ${
+                    isHovering ? "opacity-100" : ""
                   }`}
                   aria-label="Previous slide"
                 >
@@ -187,8 +192,8 @@ export default function Hero() {
                     nextSlide()
                     pauseCarousel()
                   }}
-                  className={`absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-all hover:bg-white md:opacity-0 ${
-                    isHovering ? "md:opacity-100" : ""
+                  className={`absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-all hover:bg-white opacity-0 ${
+                    isHovering ? "opacity-100" : ""
                   }`}
                   aria-label="Next slide"
                 >
@@ -196,7 +201,11 @@ export default function Hero() {
                 </button>
 
                 {/* Indicators */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                <div
+                  className={`absolute bottom-4 left-0 right-0 flex justify-center space-x-2 transition-opacity duration-300 ${
+                    isHovering ? "opacity-100" : "opacity-60"
+                  }`}
+                >
                   {slides.map((_, index) => (
                     <button
                       key={index}

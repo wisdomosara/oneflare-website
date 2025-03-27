@@ -9,7 +9,10 @@ import { Menu } from "lucide-react"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [sheetOpen, setSheetOpen] = useState(false)
   const pathname = usePathname()
+
+  const closeSheet = () => setSheetOpen(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +60,7 @@ export default function Header() {
           </Button>
         </div>
 
-        <Sheet>
+        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild className="md:hidden">
             <Button variant="ghost" size="icon">
               <Menu className="h-6 w-6" />
@@ -71,11 +74,12 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={`text-sm font-medium transition-colors hover:text-primary ${pathname === item.href ? "text-primary" : "text-muted-foreground"}`}
+                  onClick={closeSheet}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Button asChild className="mt-4">
+              <Button asChild className="mt-4" onClick={closeSheet}>
                 <Link href="/contact">Get Started</Link>
               </Button>
             </div>

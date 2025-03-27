@@ -134,11 +134,9 @@ export default function Footer() {
       {/* Bottom footer */}
       <div className="border-t border-border/30 bg-muted/80">
         <div className="container mx-auto py-6">
-          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Oneflare Tech Solutions. All rights reserved.
-            </p>
-            <div className="flex space-x-6 text-sm">
+          <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:space-y-0">
+            <p className="text-sm text-muted-foreground">&copy; {2025} Oneflare Tech Solutions. All rights reserved.</p>
+            <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-6 text-sm">
               <Link href="#" className="text-muted-foreground hover:text-primary">
                 Privacy Policy
               </Link>

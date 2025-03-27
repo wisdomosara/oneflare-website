@@ -34,7 +34,7 @@ export default function Products() {
   ]
 
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
 
   return (
     <section className="py-24 bg-gradient-to-b from-muted to-background" ref={ref}>

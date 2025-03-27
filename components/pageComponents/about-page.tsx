@@ -12,10 +12,10 @@ export default function AboutPageClient() {
   const ref3 = useRef(null)
   const ref4 = useRef(null)
 
-  const isInView1 = useInView(ref1, { once: true, amount: 0.2 })
-  const isInView2 = useInView(ref2, { once: true, amount: 0.2 })
-  const isInView3 = useInView(ref3, { once: true, amount: 0.2 })
-  const isInView4 = useInView(ref4, { once: true, amount: 0.2 })
+  const isInView1 = useInView(ref1, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView2 = useInView(ref2, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView3 = useInView(ref3, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView4 = useInView(ref4, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
 
   return (
     <div className="container mx-auto pb-24">

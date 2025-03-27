@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge"
 export default function ProductsPageClient() {
   const ref1 = useRef(null)
   const ref2 = useRef(null)
-  const isInView1 = useInView(ref1, { once: true, amount: 0.2 })
-  const isInView2 = useInView(ref2, { once: true, amount: 0.2 })
+  const isInView1 = useInView(ref1, { once: true, amount: 0.1 })
+  const isInView2 = useInView(ref2, { once: true, amount: 0.1 })
 
   const products = [
     {
@@ -113,85 +113,96 @@ export default function ProductsPageClient() {
         </p>
       </motion.div>
 
-      <Tabs defaultValue="all" className="mb-12" ref={ref1}>
-        <motion.div
-          className="flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <TabsList>
-            <TabsTrigger value="all">All Products</TabsTrigger>
-            <TabsTrigger value="pos">POS Systems</TabsTrigger>
-            <TabsTrigger value="software">Software Solutions</TabsTrigger>
-            <TabsTrigger value="management">Management Tools</TabsTrigger>
-          </TabsList>
-        </motion.div>
-        <TabsContent value="all" className="mt-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView1 ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              >
-                <ProductCard product={product} />
-              </motion.div>
-            ))}
+      <div ref={ref1}>
+        <Tabs defaultValue="all" className="mb-12">
+          <div className="flex justify-center mb-8">
+            <div className="bg-muted/50 rounded-lg p-2 mb-8 overflow-x-auto">
+              <TabsList className="w-full min-w-max md:grid md:grid-cols-4 flex">
+                <TabsTrigger value="all" className="flex-1 min-w-[120px]">
+                  All Products
+                </TabsTrigger>
+                <TabsTrigger value="pos" className="flex-1 min-w-[120px]">
+                  POS Systems
+                </TabsTrigger>
+                <TabsTrigger value="software" className="flex-1 min-w-[150px]">
+                  Software Solutions
+                </TabsTrigger>
+                <TabsTrigger value="management" className="flex-1 min-w-[150px]">
+                  Management Tools
+                </TabsTrigger>
+              </TabsList>
+            </div>
           </div>
-        </TabsContent>
-        <TabsContent value="pos" className="mt-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {products
-              .filter((p) => p.category === "pos")
-              .map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView1 ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                >
-                  <ProductCard product={product} />
-                </motion.div>
-              ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="software" className="mt-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {products
-              .filter((p) => p.category === "software")
-              .map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView1 ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                >
-                  <ProductCard product={product} />
-                </motion.div>
-              ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="management" className="mt-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {products
-              .filter((p) => p.category === "management")
-              .map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView1 ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                >
-                  <ProductCard product={product} />
-                </motion.div>
-              ))}
-          </div>
-        </TabsContent>
-      </Tabs>
 
-      <div className="rounded-xl bg-muted p-8 md:p-12" ref={ref2}>
+          <TabsContent value="all" className="mt-8">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {products.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                >
+                  <ProductCard product={product} />
+                </motion.div>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="pos" className="mt-8">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {products
+                .filter((p) => p.category === "pos")
+                .map((product, index) => (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="software" className="mt-8">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {products
+                .filter((p) => p.category === "software")
+                .map((product, index) => (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="management" className="mt-8">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {products
+                .filter((p) => p.category === "management")
+                .map((product, index) => (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+
+      <div className="rounded-xl bg-muted p-4 sm:p-8 md:p-12" ref={ref2}>
         <div className="grid gap-8 md:grid-cols-2 md:items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

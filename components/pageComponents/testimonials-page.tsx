@@ -9,8 +9,8 @@ import { Star } from "lucide-react"
 export default function TestimonialsPageClient() {
   const ref1 = useRef(null)
   const ref2 = useRef(null)
-  const isInView1 = useInView(ref1, { once: true, amount: 0.2 })
-  const isInView2 = useInView(ref2, { once: true, amount: 0.2 })
+  const isInView1 = useInView(ref1, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView2 = useInView(ref2, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
 
   const testimonials = [
     {

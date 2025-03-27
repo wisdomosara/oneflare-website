@@ -13,10 +13,10 @@ export default function ServicesPageClient() {
   const ref3 = useRef(null)
   const ref4 = useRef(null)
 
-  const isInView1 = useInView(ref1, { once: true, amount: 0.2 })
-  const isInView2 = useInView(ref2, { once: true, amount: 0.2 })
-  const isInView3 = useInView(ref3, { once: true, amount: 0.2 })
-  const isInView4 = useInView(ref4, { once: true, amount: 0.2 })
+  const isInView1 = useInView(ref1, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView2 = useInView(ref2, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView3 = useInView(ref3, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
+  const isInView4 = useInView(ref4, { once: true, amount: 0.1 }) // Reverted from 0.3 to 0.1
 
   return (
     <div className="container mx-auto pb-24">
@@ -186,7 +186,7 @@ export default function ServicesPageClient() {
         </div>
       </div>
 
-      <div className="rounded-xl bg-muted p-8 md:p-12" ref={ref4}>
+      <div className="rounded-xl bg-muted p-4 sm:p-8 md:p-12" ref={ref4}>
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -194,11 +194,11 @@ export default function ServicesPageClient() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="mb-4 text-3xl font-bold text-primary">Our Development Process</h2>
-          <p className="mx-auto mb-12 max-w-3xl text-muted-foreground">
+          <p className="mx-auto mb-8 md:mb-12 max-w-3xl text-muted-foreground">
             We follow a proven methodology to ensure successful project delivery and client satisfaction
           </p>
         </motion.div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
             {
               step: "1",
@@ -231,7 +231,7 @@ export default function ServicesPageClient() {
                 <div className="bg-primary p-4 text-center text-primary-foreground">
                   <span className="text-xl font-bold">Step {phase.step}</span>
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <h3 className="mb-2 text-xl font-bold">{phase.title}</h3>
                   <p className="text-muted-foreground">{phase.description}</p>
                 </CardContent>

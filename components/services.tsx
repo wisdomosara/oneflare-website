@@ -51,7 +51,7 @@ export default function Services() {
   ]
 
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <section className="py-24 bg-gradient-to-b from-background to-muted/30" ref={ref}>
@@ -78,7 +78,7 @@ export default function Services() {
               <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
               <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
 
-              <div className="relative grid gap-8 overflow-hidden rounded-xl p-8 md:grid-cols-2 md:p-10">
+              <div className="relative grid gap-8 overflow-hidden rounded-xl p-4 sm:p-6 md:grid-cols-2 md:p-10">
                 <div className={`flex flex-col justify-center ${index % 2 === 1 ? "md:order-2" : ""}`}>
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
                     {service.icon}
