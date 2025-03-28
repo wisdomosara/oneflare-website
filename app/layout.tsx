@@ -7,6 +7,21 @@ export const metadata: Metadata = {
   title: "Oneflare Tech Solutions | Custom Software & POS Systems",
   description:
     "Oneflare Tech Solutions specializes in customized software development, POS solutions, and business suite management tools for modern enterprises.",
+  icons: {
+    icon: './oneflare-logo-dark.png',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    images: [
+      {
+        url: './oneflare-case-study-bg.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Oneflare Tech Solutions'
+      }
+    ]
+  }
 }
 
 export default function RootLayout({
@@ -16,4 +31,3 @@ export default function RootLayout({
 }>) {
   return <ClientRootLayout>{children}</ClientRootLayout>
 }
-
